@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar producto</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <img id="logo" src="imagenes/logotransparente.png" alt="logo">
+        <h1>Nuevo producto</h1>
+    </header>
+    <main>
+        <form id="frmNuevoProducto">
+                <input type="hidden" id="idcod">
+            
+                <label>
+                    Título:
+                    <input type="text" id="tituloProducto" required>
+                </label>
+            
+                <label>
+                    Precio en Pesos:
+                    <input type="number" id="precioPesoProducto" required>
+                </label>
+            
+                <label>
+                    Precio en Dólares:
+                   <input type="number" id="precioDolarProducto" required>
+                </label>
+            
+                <label>
+                    Fecha:
+                    <input type="date" id="fechaProducto" required>
+                </label>
+              
+            <button type="button" id="btnGuardar">Guardar</button>
+        </form>
+    </main>
+    <footer>
+        <a href="https://www.instagram.com/veraknitwear/?next=%2F" target="_blank"> Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=100089864079509" target="_blank"> Facebook</a>
+        
+        <p>
+            San Francisco, Cba. (Argentina)
+            <br>
+            Contacto:  veraknitwear@gmail.com
+            <br>
+            Cel:  (+54)3564-334108
+        </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
