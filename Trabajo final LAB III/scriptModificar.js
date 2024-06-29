@@ -3,7 +3,7 @@ const apiUrl = 'https://api.yumserver.com/16472/products';
 const urlParams = new URLSearchParams(window.location.search);
 const idProducto = urlParams.get('id');
 
-//OBTENGO LOS DETALLES DEL PRODUCTO A MODIFICAR
+
 fetch(`${apiUrl}/${idProducto}`)
 .then(response => {
     if (!response.ok) {
@@ -12,7 +12,7 @@ fetch(`${apiUrl}/${idProducto}`)
     return response.json();
 })
 .then(producto => {
-    //LE ASIGNO LOS VALORES EN LOS CAMPOS DE TEXTO.
+    
     document.getElementById('tituloProducto').value = producto.titulo;
     document.getElementById('precioPesoProducto').value = producto.precioPeso;
     document.getElementById('precioDolarProducto').value = producto.precioDolar;
@@ -27,7 +27,6 @@ fetch(`${apiUrl}/${idProducto}`)
 document.getElementById('btnGuardarModificado').addEventListener('click', function() {
     const id = idProducto;
     const nuevoTitulo = document.getElementById('tituloProducto').value;
-  //CONVERTIR FECHA EN AÑO-MES-DIA"
     const fechaInput = document.getElementById('fechaProducto').value;
     const fechaPartes = fechaInput.split('-'); 
     const anio = fechaPartes[0]; 
@@ -37,7 +36,6 @@ document.getElementById('btnGuardarModificado').addEventListener('click', functi
     const nuevoPesos = document.getElementById('precioPesoProducto').value;
     const nuevoDolar = document.getElementById('precioDolarProducto').value;
 
- //ARMO EL OBJETO CON DATOS ACTUALIZADOS.
     const datosActualizados = {
     idcod : id,
     titulo: nuevoTitulo, 
@@ -45,13 +43,12 @@ document.getElementById('btnGuardarModificado').addEventListener('click', functi
     precioDolar: nuevoDolar,
     fecha: nuevaFecha
     };
-  //VERIFICAR QUE SE COMPLETEN TODOS LOS DATOS
+  
     if (nuevoTitulo === '' || fechaInput === '' || nuevoPesos === '' || nuevoDolar === '') {
     alert('Debes completar todos los datos del producto.');
     return;
     }
 
-  //ENVIO LA SOLICITUD A LA API PARA MODIFICAR.
     fetch(apiUrl, {
        method: 'PATCH',
        headers: { 'Content-Type': 'application/json' },
